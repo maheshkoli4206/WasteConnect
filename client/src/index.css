@@ -129,6 +129,121 @@ body {
   max-width: 900px;
 }
 
+/* High Contrast Section Eyebrows & Badges */
+.section-eyebrow {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+}
+
+.hero-badge {
+  background-color: #D1FAE5 !important;
+  color: #047857 !important;
+  border: 1px solid #10B981 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 6px 14px !important;
+  border-radius: 30px !important;
+  display: inline-block;
+}
+
+.badge-priority-high {
+  background-color: #EF4444 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.zone-label {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+
+/* High Contrast Lifecycle Badges */
+.lifecycle-badge-submitted {
+  background-color: #06B6D4 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-badge-reviewed {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-badge-scheduled {
+  background-color: #F59E0B !important;
+  color: #111827 !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-badge-assigned {
+  background-color: #6366F1 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-badge-collected {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-badge-completed {
+  background-color: #059669 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.lifecycle-arrow {
+  color: #334155 !important;
+  font-weight: 800 !important;
+  font-size: 13px !important;
+}
+
+.text-dark-primary {
+  color: #0F172A !important;
+}
+
+.text-secondary-readable {
+  color: #475569 !important;
+}
+
+.text-muted-readable {
+  color: #64748B !important;
+}
+
 /* Solid Clean White Cards */
 .wc-card {
   background: var(--card-bg);
