@@ -1,0 +1,21 @@
+{
+  "name": "waste-connect-monorepo",
+  "version": "1.0.0",
+  "description": "WasteConnect - Request. Track. Collect. Hackathon MVP",
+  "main": "server/server.js",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "seed": "npm run seed --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "keywords": ["waste-management", "recycling", "mern", "hackathon"],
+  "author": "WasteConnect Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
