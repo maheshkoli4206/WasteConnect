@@ -2,7 +2,7 @@
 
 > **Tagline:** Request. Track. Collect.
 
-WasteConnect is a modern, full-stack MERN hackathon MVP designed to simplify responsible waste disposal for residents while providing collection management teams with smart priority scoring, request tracking, and operational analytics.
+WasteConnect is a modern, full-stack MERN hackathon MVP designed to simplify responsible waste disposal for residents while providing collection management teams with smart priority scoring, collection zone intelligence, smart collection batching, and environmental impact analytics.
 
 ---
 
@@ -11,14 +11,16 @@ WasteConnect is a modern, full-stack MERN hackathon MVP designed to simplify res
 ### For Residents (USER Role)
 - **Waste Category Guidance**: Instant, clear responsible disposal and preparation instructions for E-Waste, Plastic, Paper, Glass, Organic, Metal, Hazardous, and Other materials.
 - **Schedule Pickup Requests**: Select waste category, pickup address location, date, and preferred time slot.
-- **Smart Collection Priority**: Automated priority rating (LOW, MEDIUM, HIGH) generated upon request submission.
+- **Smart Collection Priority**: Automated priority rating (LOW, MEDIUM, HIGH) generated upon request submission with explainable factors.
 - **Visual Progress Timeline**: Track request lifecycle in real-time (`SUBMITTED` ➔ `REVIEWED` ➔ `SCHEDULED` ➔ `ASSIGNED` ➔ `COLLECTED` ➔ `COMPLETED`).
-- **Pickup History**: Manage active and historical pickup requests with status filtering.
+- **Pickup History**: Manage active and historical pickup requests with status filtering and cancellation rules.
 
 ### For Operations (ADMIN Role)
 - **Real-Time Analytics Dashboard**: Monitor total requests, pending reviews, scheduled pickups, completed collections, and high-priority alerts backed by MongoDB aggregations.
-- **Search & Filter Request Queue**: Filter by Category, Status, or Priority, or search by Request ID and address.
-- **Smart Priority Sorting**: Automatically prioritize high-risk, hazardous, or urgent pickups.
+- **📍 Collection Zone Intelligence**: Operational zone auto-assignment (`Zone A`, `Zone B`, `Zone C`, `Zone D / General`) based on location text processing.
+- **🚛 Smart Collection Batching**: Automated operational grouping of active requests sharing identical collection zones and pickup dates.
+- **🌱 Environmental Impact Dashboard**: Real-time estimates of waste diverted (kg) and completion rates based on completed collections.
+- **Search & Filter Request Queue**: Filter by Category, Status, Priority, or Collection Zone, or search by Request ID and address.
 - **Status & Crew Dispatch Updates**: Update pickup statuses and append crew notes directly.
 
 ---
@@ -43,7 +45,6 @@ Run from the project root:
 ```bash
 npm run install:all
 ```
-*(Or install manually in `server/` and `client/` directories)*
 
 ### 2. Configure Environment Variables
 Copy `.env.example` to `server/.env`:
@@ -76,7 +77,7 @@ Visit `http://localhost:3000` in your browser.
 | Role | Email | Password | Access |
 | :--- | :--- | :--- | :--- |
 | **Resident (User)** | `user@wasteconnect.org` | `User123!` | User Dashboard, Pickup Creation, Tracking |
-| **Operations (Admin)** | `admin@wasteconnect.org` | `Admin123!` | Admin Dashboard, Operations Queue, Status Updates |
+| **Operations (Admin)** | `admin@wasteconnect.org` | `Admin123!` | Admin Dashboard, Collection Zones, Batches, Impact Dashboard, Queue |
 
 *(Quick autofill demo buttons are provided on the Login page for 1-click testing!)*
 
@@ -98,23 +99,31 @@ Visit `http://localhost:3000` in your browser.
 - `GET /api/requests/:id` - Get details & status timeline of specific request
 - `PATCH /api/requests/:id/cancel` - Cancel a submitted request
 
-### Admin Operations
+### Admin Operations & Intelligence
 - `GET /api/admin/statistics` - Aggregate collection statistics
-- `GET /api/admin/requests` - Queue of all requests with search & filters
+- `GET /api/admin/zones` - Collection Zone overview breakdown
+- `GET /api/admin/batches` - Suggested smart collection batches
+- `GET /api/admin/impact` - Environmental impact metrics & category breakdown
+- `GET /api/admin/requests` - Queue of all requests with multi-criteria search & filters
 - `GET /api/admin/requests/:id` - Admin request details
 - `PATCH /api/admin/requests/:id/status` - Update request status, priority & crew notes
 
 ---
 
-## 🐳 Containerization & Deployment (Google Cloud Run)
+## 🐳 Containerization & Deployment
 
-To build and run locally with Docker:
+### Production Build
 ```bash
-docker build -t wasteconnect .
-docker run -p 8080:8080 -e MONGODB_URI="your_mongodb_atlas_uri" wasteconnect
+npm run build --prefix client
 ```
 
-Deploying to Google Cloud Run:
+### Local Docker Build & Execution
+```bash
+docker build -t wasteconnect .
+docker run -p 8080:8080 -e MONGODB_URI="mongodb://127.0.0.1:27017/wasteconnect" wasteconnect
+```
+
+### Cloud Deployment (Google Cloud Run)
 ```bash
 gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/wasteconnect
 gcloud run deploy wasteconnect --image gcr.io/YOUR_PROJECT_ID/wasteconnect --platform managed --allow-unauthenticated
