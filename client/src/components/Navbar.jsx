@@ -17,8 +17,9 @@ const Navbar = () => {
   return (
     <div className="container px-3">
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom py-2 px-3">
-        <div className="container-fluid">
-          <Link className="navbar-brand d-flex align-items-center me-4" to="/">
+        <div className="container-fluid px-0">
+          {/* LEFT: Brand Logo & Tagline */}
+          <Link className="navbar-brand d-flex align-items-center me-3 me-xl-4" to="/">
             <span className="fs-3 me-2">♻️</span>
             <div className="d-flex flex-column">
               <span className="brand-text fs-4 lh-1">WasteConnect</span>
@@ -26,6 +27,7 @@ const Navbar = () => {
             </div>
           </Link>
 
+          {/* Mobile Hamburger Toggler */}
           <button
             className="navbar-toggler border-0"
             type="button"
@@ -38,66 +40,106 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
+          {/* CENTER & RIGHT Links */}
           <div className="collapse navbar-collapse" id="navbarMain">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-              <li className="nav-item">
-                <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/">
-                  Home
-                </Link>
-              </li>
-
-              {user && !isAdmin && (
+            {/* CENTER Navigation Bar */}
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 text-center text-lg-start">
+              {/* Unauthenticated / Public User Navigation */}
+              {!user && (
                 <>
                   <li className="nav-item">
-                    <Link
-                      className={`nav-link ${isActive('/dashboard') ? 'active' : ''}`}
-                      to="/dashboard"
-                    >
-                      Dashboard
+                    <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/">
+                      Home
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link
-                      className={`nav-link ${isActive('/requests/new') ? 'active' : ''}`}
-                      to="/requests/new"
-                    >
-                      Request Pickup
+                    <Link className={`nav-link ${isActive('/about') ? 'active' : ''}`} to="/about">
+                      About Us
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link
-                      className={`nav-link ${isActive('/my-requests') ? 'active' : ''}`}
-                      to="/my-requests"
-                    >
-                      My History
+                    <Link className={`nav-link ${isActive('/how-it-works') ? 'active' : ''}`} to="/how-it-works">
+                      How It Works
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/features') ? 'active' : ''}`} to="/features">
+                      Features
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/contact') ? 'active' : ''}`} to="/contact">
+                      Contact Us
                     </Link>
                   </li>
                 </>
               )}
 
-              {user && isAdmin && (
+              {/* Logged-In Normal User Navigation */}
+              {user && !isAdmin && (
                 <>
                   <li className="nav-item">
-                    <Link
-                      className={`nav-link ${isActive('/admin') ? 'active' : ''}`}
-                      to="/admin"
-                    >
-                      Admin Overview
+                    <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/">
+                      Home
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link
-                      className={`nav-link ${isActive('/admin/requests') ? 'active' : ''}`}
-                      to="/admin/requests"
-                    >
-                      Manage Requests
+                    <Link className={`nav-link ${isActive('/dashboard') ? 'active' : ''}`} to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/requests/new') ? 'active' : ''}`} to="/requests/new">
+                      Request Pickup
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/my-requests') ? 'active' : ''}`} to="/my-requests">
+                      My History
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/about') ? 'active' : ''}`} to="/about">
+                      About
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/contact') ? 'active' : ''}`} to="/contact">
+                      Contact
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {/* Logged-In Admin Navigation */}
+              {user && isAdmin && (
+                <>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/admin') ? 'active' : ''}`} to="/admin">
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/admin/requests') ? 'active' : ''}`} to="/admin/requests">
+                      Requests
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/about') ? 'active' : ''}`} to="/about">
+                      About
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${isActive('/contact') ? 'active' : ''}`} to="/contact">
+                      Contact
                     </Link>
                   </li>
                 </>
               )}
             </ul>
 
-            <div className="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            {/* RIGHT Authentication / User Controls */}
+            <div className="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 mt-3 mt-lg-0">
               {user ? (
                 <div className="dropdown">
                   <button
@@ -114,7 +156,7 @@ const Navbar = () => {
                     {isAdmin && <span className="badge bg-warning text-dark ms-1">ADMIN</span>}
                   </button>
                   <ul className="dropdown-menu dropdown-menu-end shadow border-0 p-2 rounded-3 mt-2" aria-labelledby="userDropdown">
-                    <li className="dropdown-header text-muted small">Logged in as {user.email}</li>
+                    <li className="dropdown-header text-muted extra-small">Logged in as {user.email}</li>
                     <li><hr className="dropdown-divider my-1" /></li>
                     <li>
                       <button className="dropdown-item text-danger rounded-2 small fw-semibold py-1.5" onClick={handleLogout}>
@@ -125,10 +167,10 @@ const Navbar = () => {
                 </div>
               ) : (
                 <>
-                  <Link to="/login" className="btn btn-outline-light btn-sm px-3 rounded-pill">
+                  <Link to="/login" className="btn btn-outline-light btn-sm px-3 rounded-pill fw-semibold">
                     Log In
                   </Link>
-                  <Link to="/register" className="btn btn-emerald btn-sm px-3 rounded-pill">
+                  <Link to="/register" className="btn btn-emerald btn-sm px-3 rounded-pill fw-semibold">
                     Register
                   </Link>
                 </>
