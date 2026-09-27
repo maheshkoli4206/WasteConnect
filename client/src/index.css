@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background-color: #F8FAFC;
+  background-color: #F7FBF9;
   color: var(--dark-slate);
   min-height: 100vh;
   display: flex;
@@ -47,7 +47,7 @@ body {
 .brand-text {
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -77,35 +77,71 @@ body {
   font-weight: 700 !important;
 }
 
-/* Clean Hero Section */
-.hero-wrapper {
-  background: var(--primary-forest);
-  color: #ffffff;
-  padding: 4rem 0 4.5rem 0;
+/* Clean Light Hero Section */
+.hero-wrapper-light {
+  background: linear-gradient(180deg, #F7FBF9 0%, #EDF8F3 100%);
+  color: var(--dark-slate);
+  padding: 3.5rem 0 4rem 0;
   position: relative;
+  border-bottom: 1px solid rgba(15, 57, 43, 0.06);
+}
+
+.hero-product-preview {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(15, 57, 43, 0.08);
 }
 
 .bg-dark-forest {
   background-color: var(--primary-forest) !important;
 }
 
+.text-dark-forest {
+  color: var(--primary-forest) !important;
+}
+
 .border-dark-forest {
   border-color: var(--primary-forest) !important;
+}
+
+.text-emerald {
+  color: var(--emerald-main) !important;
+}
+
+.bg-emerald {
+  background-color: var(--emerald-main) !important;
+}
+
+.border-emerald {
+  border-color: var(--emerald-main) !important;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.max-w-800 {
+  max-width: 800px;
+}
+
+.max-w-900 {
+  max-width: 900px;
 }
 
 /* Solid Clean White Cards */
 .wc-card {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 1px solid #E5E7EB;
   border-radius: 16px;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 8px 30px rgba(15, 57, 43, 0.05);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .wc-card:hover {
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: 0 12px 36px rgba(15, 57, 43, 0.09);
   transform: translateY(-2px);
-  border-color: rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .wc-card-dark {
@@ -129,6 +165,21 @@ body {
   margin-bottom: 1rem;
 }
 
+.step-number-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--soft-mint);
+  color: var(--primary-forest);
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--emerald-main);
+  margin: 0 auto 0.75rem auto;
+}
+
 /* Custom Buttons System */
 .btn-emerald {
   background-color: var(--emerald-main);
@@ -136,15 +187,36 @@ body {
   border: none;
   font-weight: 600;
   border-radius: 10px;
-  padding: 0.6rem 1.3rem;
+  padding: 0.65rem 1.35rem;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-emerald:hover {
   background-color: var(--emerald-hover);
   color: #ffffff;
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary-hero {
+  background-color: #FFFFFF;
+  color: var(--primary-forest);
+  border: 1.5px solid var(--primary-forest);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.65rem 1.35rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary-hero:hover {
+  background-color: var(--primary-forest);
+  color: #FFFFFF;
 }
 
 .btn-outline-emerald {

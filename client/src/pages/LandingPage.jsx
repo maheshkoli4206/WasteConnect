@@ -7,6 +7,7 @@ const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
+    document.title = 'WasteConnect | Request. Track. Collect.';
     const fetchCategories = async () => {
       try {
         const res = await api.get('/categories');
@@ -24,67 +25,71 @@ const LandingPage = () => {
 
   return (
     <div className="fade-in-ui">
-      {/* 2-Column Hero Section */}
-      <section className="hero-wrapper">
+      {/* 1. Light Hero Section */}
+      <section className="hero-wrapper-light">
         <div className="container">
           <div className="row align-items-center gy-4">
-            {/* Left Column (55%) */}
+            {/* Left Hero (55%) */}
             <div className="col-lg-7 text-center text-lg-start">
-              <span className="badge bg-emerald bg-opacity-20 text-emerald border border-emerald border-opacity-30 px-3 py-1.5 rounded-pill mb-3 fw-semibold small">
-                🌱 Smart Waste Disposal & Collection Intelligence
+              <span className="badge bg-emerald bg-opacity-20 text-dark border border-emerald border-opacity-30 px-3 py-1.5 rounded-pill mb-3 fw-semibold extra-small text-uppercase tracking-wider">
+                SMART WASTE DISPOSAL & COLLECTION
               </span>
-              <h1 className="display-5 fw-extrabold mb-3 text-white lh-sm">
-                Waste collection made <span className="brand-text">simple & smart</span>.
+              <h1 className="display-5 fw-extrabold mb-3 text-dark-forest lh-sm">
+                Waste collection made <br />
+                <span className="text-emerald">simple & smart.</span>
               </h1>
-              <p className="lead text-light opacity-90 mb-4 me-lg-4 fs-6">
+              <p className="lead text-secondary mb-4 me-lg-4 fs-6">
                 Track collection status and manage pickup requests through a centralized workflow.
               </p>
               <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-                <Link to="/requests/new" className="btn btn-emerald btn-lg px-4 shadow-sm">
+                <Link to="/requests/new" className="btn btn-emerald shadow-sm">
                   Request a Pickup <i className="bi bi-arrow-right ms-2"></i>
                 </Link>
-                <a href="#disposal-guidance" className="btn btn-outline-light btn-lg px-4">
+                <a href="#disposal-guidance" className="btn btn-secondary-hero">
                   Disposal Guidance
                 </a>
               </div>
             </div>
 
-            {/* Right Column (45%): Clean SaaS Product Preview Card */}
+            {/* Right Hero (45%): Clean White Conceptual Product Preview */}
             <div className="col-lg-5">
-              <div className="wc-card-dark p-4 position-relative shadow-lg">
-                <div className="d-flex align-items-center justify-content-between border-bottom border-secondary border-opacity-30 pb-3 mb-3">
+              <div className="hero-product-preview p-4 position-relative">
+                {/* Header */}
+                <div className="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
                   <div className="d-flex align-items-center gap-2">
                     <span className="fs-5">♻️</span>
-                    <span className="fw-bold text-emerald">WasteConnect Hub</span>
+                    <span className="fw-bold text-dark-forest small">WasteConnect</span>
                   </div>
-                  <span className="badge bg-success bg-opacity-20 text-emerald border border-emerald border-opacity-30 rounded-pill px-2.5 py-1 extra-small">
-                    Active Platform
+                  <span className="badge bg-success bg-opacity-15 text-success border border-success border-opacity-30 rounded-pill px-2.5 py-1 extra-small">
+                    ● Operational Platform
                   </span>
                 </div>
 
-                {/* Preview Card 1: Priority & Zone Alert */}
-                <div className="p-3 bg-dark bg-opacity-50 rounded-3 border border-emerald border-opacity-20 mb-3 text-start">
+                {/* Priority & Request Concept Card */}
+                <div className="p-3 bg-light rounded-3 border mb-3 text-start">
                   <div className="d-flex justify-content-between align-items-center mb-1">
-                    <span className="badge bg-danger text-white">HIGH PRIORITY</span>
-                    <span className="small text-emerald fw-semibold">Zone A</span>
+                    <span className="badge bg-danger text-white extra-small">HIGH PRIORITY</span>
+                    <span className="extra-small text-emerald fw-bold">Zone A</span>
                   </div>
-                  <div className="fw-bold text-white small">E-Waste Pickup • REQ-2026-1001</div>
-                  <div className="extra-small text-secondary">Categorized & prioritized for collection</div>
+                  <div className="fw-bold text-dark small">E-Waste Pickup</div>
+                  <div className="extra-small text-secondary">Lithium batteries, electronic monitors</div>
                 </div>
 
-                {/* Preview Card 2: 6-Stage Tracking Lifecycle */}
-                <div className="p-3 bg-dark bg-opacity-50 rounded-3 border border-secondary border-opacity-20 text-start">
-                  <span className="extra-small text-secondary d-block mb-2 fw-semibold text-uppercase tracking-wider">
-                    6-Stage Collection Lifecycle
+                {/* Conceptual Lifecycle Stepper */}
+                <div className="p-3 bg-light rounded-3 border text-start">
+                  <span className="extra-small text-muted d-block mb-2 fw-bold text-uppercase tracking-wider">
+                    Request Lifecycle
                   </span>
                   <div className="d-flex justify-content-between align-items-center flex-wrap gap-1">
-                    <span className="badge bg-info text-dark extra-small">SUBMITTED</span>
+                    <span className="badge bg-info bg-opacity-20 text-dark extra-small">SUBMITTED</span>
                     <span className="text-secondary extra-small">➔</span>
-                    <span className="badge bg-primary text-white extra-small">REVIEWED</span>
+                    <span className="badge bg-primary bg-opacity-20 text-primary extra-small">REVIEWED</span>
                     <span className="text-secondary extra-small">➔</span>
-                    <span className="badge bg-purple text-white extra-small" style={{ backgroundColor: '#8b5cf6' }}>SCHEDULED</span>
+                    <span className="badge bg-warning bg-opacity-20 text-dark extra-small">SCHEDULED</span>
                     <span className="text-secondary extra-small">➔</span>
-                    <span className="badge bg-emerald text-dark fw-bold extra-small">COLLECTED</span>
+                    <span className="badge bg-success bg-opacity-20 text-success extra-small">COLLECTED</span>
+                    <span className="text-secondary extra-small">➔</span>
+                    <span className="badge bg-success text-white extra-small">COMPLETED</span>
                   </div>
                 </div>
               </div>
@@ -93,72 +98,143 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Feature Cards Section */}
-      <section className="py-5 bg-white">
-        <div className="container py-3">
-          <div className="text-center mb-5 max-w-700 mx-auto">
-            <span className="text-emerald fw-bold text-uppercase tracking-wider small">Platform Intelligence</span>
-            <h2 className="fw-bold text-dark mt-1">Core Capabilities</h2>
-            <p className="text-muted small">Streamlining disposal, scheduling, and collection management.</p>
+      {/* 2. Problem + Solution Section */}
+      <section className="py-5 bg-white border-bottom">
+        <div className="container py-2">
+          <div className="text-center mb-4">
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">PURPOSE & OBJECTIVE</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">THE PROBLEM → THE SOLUTION</h2>
+          </div>
+
+          <div className="row g-4">
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 border-start border-4 border-warning">
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <i className="bi bi-exclamation-triangle-fill text-warning fs-4"></i>
+                  <h5 className="fw-bold mb-0 text-dark">THE PROBLEM</h5>
+                </div>
+                <p className="text-secondary small mb-2">
+                  Residents often lack clear guidance for proper waste segregation and preparation.
+                </p>
+                <p className="text-secondary small mb-0">
+                  Collection teams face unorganized pickup requests and difficulty prioritizing and grouping collections.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 border-start border-4 border-emerald">
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <i className="bi bi-check-circle-fill text-emerald fs-4"></i>
+                  <h5 className="fw-bold mb-0 text-dark">THE SOLUTION</h5>
+                </div>
+                <p className="text-secondary small mb-0">
+                  WasteConnect provides a centralized platform for disposal guidance, pickup scheduling, request tracking and intelligent collection management.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. How It Works Section */}
+      <section className="py-5 bg-light border-bottom">
+        <div className="container py-2">
+          <div className="text-center mb-5">
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">SIMPLE WORKFLOW</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">HOW IT WORKS</h2>
+            <p className="text-muted small">Six organized steps connecting residents and municipal collection crews.</p>
+          </div>
+
+          <div className="row g-3 justify-content-center text-center">
+            {[
+              { num: '01', title: 'SELECT WASTE', desc: 'Choose Category' },
+              { num: '02', title: 'DISPOSAL GUIDANCE', desc: 'Read DOs / DON\'Ts' },
+              { num: '03', title: 'SCHEDULE PICKUP', desc: 'Address & Date' },
+              { num: '04', title: 'SUBMIT REQUEST', desc: 'Zone & Priority' },
+              { num: '05', title: 'TRACK STATUS', desc: 'Live Stepper' },
+              { num: '06', title: 'COLLECTION COMPLETE', desc: 'Impact Logged' },
+            ].map((step, idx) => (
+              <div key={idx} className="col-6 col-md-4 col-lg-2">
+                <div className="wc-card p-3 h-100">
+                  <div className="step-number-circle">{step.num}</div>
+                  <h6 className="fw-bold text-dark mb-1 extra-small">{step.title}</h6>
+                  <span className="text-muted extra-small">{step.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Smart Collection Intelligence Section */}
+      <section className="py-5 bg-dark-forest text-white">
+        <div className="container py-2">
+          <div className="text-center mb-5">
+            <span className="badge bg-emerald bg-opacity-20 text-emerald border border-emerald border-opacity-30 px-3 py-1 rounded-pill extra-small text-uppercase tracking-wider mb-2">
+              Rule-Based Intelligence
+            </span>
+            <h2 className="fw-bold text-white mt-1 fs-3">SMART COLLECTION INTELLIGENCE</h2>
+            <p className="text-light opacity-75 small">Rule-Based Intelligence for Organized Collection Management</p>
           </div>
 
           <div className="row g-4">
             <div className="col-md-4">
-              <div className="wc-card p-4 h-100">
+              <div className="wc-card p-4 h-100 text-dark">
                 <div className="feature-icon-box">
                   <i className="bi bi-journal-check"></i>
                 </div>
-                <h5 className="fw-bold mb-2 text-dark fs-6">1. Smart Disposal Guidance</h5>
+                <h5 className="fw-bold mb-2 fs-6">SMART DISPOSAL GUIDANCE</h5>
                 <p className="text-secondary small mb-0">
-                  Instant preparation rules, DOs, DON'Ts, and environmental notes for E-Waste, Hazardous, Glass, and Organic waste.
+                  Material-specific DOs, DON'Ts, safety notes and environmental guidance.
                 </p>
               </div>
             </div>
 
             <div className="col-md-4">
-              <div className="wc-card p-4 h-100">
+              <div className="wc-card p-4 h-100 text-dark">
                 <div className="feature-icon-box">
                   <i className="bi bi-shield-exclamation"></i>
                 </div>
-                <h5 className="fw-bold mb-2 text-dark fs-6">2. Explainable Priority</h5>
+                <h5 className="fw-bold mb-2 fs-6">EXPLAINABLE PRIORITY</h5>
                 <p className="text-secondary small mb-0">
-                  Transparent priority levels (Low, Medium, High) calculated from material toxicity, volume, and urgency rules.
+                  Transparent LOW / MEDIUM / HIGH priority scoring with visible reasons.
                 </p>
               </div>
             </div>
 
             <div className="col-md-4">
-              <div className="wc-card p-4 h-100">
+              <div className="wc-card p-4 h-100 text-dark">
                 <div className="feature-icon-box">
                   <i className="bi bi-geo-alt"></i>
                 </div>
-                <h5 className="fw-bold mb-2 text-dark fs-6">3. Collection Zones</h5>
+                <h5 className="fw-bold mb-2 fs-6">COLLECTION ZONES</h5>
                 <p className="text-secondary small mb-0">
-                  Automatic allocation into municipal collection sectors for optimized route planning and request queueing.
+                  Pickup addresses organized into operational Zone A–D groups.
                 </p>
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-6">
-              <div className="wc-card p-4 h-100">
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 text-dark">
                 <div className="feature-icon-box">
                   <i className="bi bi-layers-half"></i>
                 </div>
-                <h5 className="fw-bold mb-2 text-dark fs-6">4. Smart Collection Batching</h5>
+                <h5 className="fw-bold mb-2 fs-6">SMART COLLECTION BATCHING</h5>
                 <p className="text-secondary small mb-0">
-                  Groups non-terminal requests by zone and pickup date to maximize collection efficiency and reduce emissions.
+                  Active requests grouped by collection zone and pickup date.
                 </p>
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-6">
-              <div className="wc-card p-4 h-100">
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 text-dark">
                 <div className="feature-icon-box">
                   <i className="bi bi-tree"></i>
                 </div>
-                <h5 className="fw-bold mb-2 text-dark fs-6">5. Environmental Impact</h5>
+                <h5 className="fw-bold mb-2 fs-6">ENVIRONMENTAL IMPACT</h5>
                 <p className="text-secondary small mb-0">
-                  Calculates diverted waste metrics, diverted volume, and municipal completion rates for transparent eco-tracking.
+                  Estimated diverted waste weight and collection completion analytics.
                 </p>
               </div>
             </div>
@@ -166,74 +242,102 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* 6-Node Horizontal Workflow Section */}
-      <section className="py-5 bg-light border-top border-bottom">
-        <div className="container py-3">
+      {/* 5. User + Admin Platform Capabilities */}
+      <section className="py-5 bg-white border-bottom">
+        <div className="container py-2">
           <div className="text-center mb-5">
-            <span className="text-emerald fw-bold text-uppercase tracking-wider small">End-to-End Workflow</span>
-            <h2 className="fw-bold text-dark mt-1">How WasteConnect Works</h2>
-            <p className="text-muted small">A transparent, connected 6-stage request and collection lifecycle.</p>
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">ROLES & INTERFACES</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">USER & ADMIN PORTALS</h2>
+            <p className="text-muted small">Tailored interfaces designed for residents and municipal collection managers.</p>
           </div>
 
-          <div className="row g-3 justify-content-center">
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">1️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Select Waste</h6>
-                <span className="text-muted extra-small">Pick Category</span>
+          <div className="row g-4">
+            {/* User Portal Card */}
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 border-top border-4 border-emerald">
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <i className="bi bi-person-circle text-emerald fs-4"></i>
+                  <h5 className="fw-bold text-dark mb-0">RESIDENT USER</h5>
+                </div>
+                <ul className="list-unstyled text-secondary small d-flex flex-column gap-2 mb-0">
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Registration & Login</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Waste Categories Directory</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Disposal Guidance Protocol</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Pickup Scheduling</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Request Tracking Stepper</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Pickup History</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Request Cancellation</li>
+                </ul>
               </div>
             </div>
 
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">2️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Get Guidance</h6>
-                <span className="text-muted extra-small">Read DOs / DON'Ts</span>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">3️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Schedule Pickup</h6>
-                <span className="text-muted extra-small">Date & Address</span>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">4️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Submit Request</h6>
-                <span className="text-muted extra-small">Priority Scoring</span>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">5️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Track Status</h6>
-                <span className="text-muted extra-small">6-Stage Stepper</span>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-2 text-center">
-              <div className="wc-card p-3 h-100">
-                <span className="fs-3 text-emerald d-block mb-1">6️⃣</span>
-                <h6 className="fw-bold text-dark mb-1 small">Collection Complete</h6>
-                <span className="text-muted extra-small">Impact Logged</span>
+            {/* Admin Portal Card */}
+            <div className="col-md-6">
+              <div className="wc-card p-4 h-100 border-top border-4 border-dark-forest">
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <i className="bi bi-shield-lock-fill text-dark-forest fs-4"></i>
+                  <h5 className="fw-bold text-dark mb-0">ADMIN OPERATIONS</h5>
+                </div>
+                <ul className="list-unstyled text-secondary small d-flex flex-column gap-2 mb-0">
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Operations Dashboard</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Request Queue Management</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Search & Multi-Filter Controls</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Priority Management Engine</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Collection Zones Allocation</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Smart Batching Algorithm</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Environmental Impact Analytics</li>
+                  <li><i className="bi bi-check2 text-emerald me-2"></i>Forward Status Progression</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Waste Category Guidance Exploration Directory */}
-      <section id="disposal-guidance" className="py-5 bg-white">
-        <div className="container py-3">
+      {/* 6. Request Lifecycle Section */}
+      <section className="py-5 bg-light border-bottom">
+        <div className="container py-2">
+          <div className="text-center mb-4">
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">OPERATIONAL TIMELINE</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">REQUEST LIFECYCLE</h2>
+            <p className="text-muted small">Strict forward progression with cancellation guard.</p>
+          </div>
+
+          <div className="wc-card p-4 p-md-5 bg-white">
+            <div className="timeline-stepper my-3">
+              <div className="timeline-progress" style={{ width: '100%' }}></div>
+              {[
+                { label: 'SUBMITTED' },
+                { label: 'REVIEWED' },
+                { label: 'SCHEDULED' },
+                { label: 'ASSIGNED' },
+                { label: 'COLLECTED' },
+                { label: 'COMPLETED' },
+              ].map((st, i) => (
+                <div key={i} className="timeline-step completed">
+                  <div className="timeline-circle">{i + 1}</div>
+                  <div className="timeline-label">{st.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-3 bg-light rounded-3 border text-center max-w-700 mx-auto mt-4">
+              <span className="badge bg-danger text-white me-2">CANCELLATION</span>
+              <span className="text-secondary small">
+                <code>SUBMITTED</code> or <code>REVIEWED</code> requests can be safely cancelled before collection assignment.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Waste Category Guidance Exploration Directory */}
+      <section id="disposal-guidance" className="py-5 bg-white border-bottom">
+        <div className="container py-2">
           <div className="text-center mb-5">
-            <span className="text-emerald fw-bold text-uppercase tracking-wider small">Material Guidance Directory</span>
-            <h2 className="fw-bold text-dark mt-1">Responsible Disposal Directory</h2>
-            <p className="text-muted small">Select any waste category below to review official preparation guidelines.</p>
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">MATERIAL DIRECTORY</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">Responsible Disposal Guidelines</h2>
+            <p className="text-muted small">Select any waste category below to review official preparation rules.</p>
           </div>
 
           <div className="row g-4">
@@ -271,12 +375,12 @@ const LandingPage = () => {
                     </div>
                   </div>
 
-                  <h6 className="fw-bold text-muted mb-2 small text-uppercase tracking-wider">Category Overview</h6>
-                  <p className="text-secondary small mb-4">{selectedCategory.description}</p>
+                  <h6 className="fw-bold text-muted mb-2 extra-small text-uppercase tracking-wider">Category Overview</h6>
+                  <p className="text-secondary small mb-3">{selectedCategory.description}</p>
 
                   <div className="guidance-box mb-4">
-                    <h6 className="fw-bold text-emerald mb-2 small">
-                      <i className="bi bi-info-circle-fill me-2"></i>Disposal Guidance:
+                    <h6 className="fw-bold text-emerald mb-2 extra-small text-uppercase">
+                      <i className="bi bi-info-circle-fill me-2"></i>Preparation Protocol:
                     </h6>
                     <p className="mb-0 text-dark fw-medium small">
                       "{selectedCategory.disposalGuidance}"
@@ -295,6 +399,57 @@ const LandingPage = () => {
                   Select a category on the left to view guidance.
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Product Technology Stack */}
+      <section className="py-5 bg-light border-bottom">
+        <div className="container py-2">
+          <div className="text-center mb-4">
+            <span className="text-emerald fw-bold text-uppercase tracking-wider extra-small">ENGINEERING STACK</span>
+            <h2 className="fw-bold text-dark-forest mt-1 fs-3">BUILT WITH MODERN TECHNOLOGY</h2>
+          </div>
+
+          <div className="row g-3 text-center justify-content-center max-w-900 mx-auto">
+            {[
+              'React 18',
+              'Vite',
+              'React Router',
+              'Bootstrap 5',
+              'Node.js',
+              'Express.js',
+              'MongoDB',
+              'Mongoose',
+              'JWT',
+              'bcryptjs',
+              'Docker',
+              'Render',
+            ].map((tech, idx) => (
+              <div key={idx} className="col-4 col-sm-3 col-md-2">
+                <div className="p-2.5 bg-white rounded-3 border text-dark fw-bold extra-small shadow-sm">
+                  {tech}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Final CTA Section */}
+      <section className="py-5 bg-white">
+        <div className="container py-3">
+          <div className="bg-dark-forest p-4 p-md-5 rounded-4 text-center text-white shadow max-w-900 mx-auto">
+            <h3 className="fw-bold mb-2">Ready to make waste collection more organized?</h3>
+            <p className="text-light opacity-90 small mb-4">Request. Track. Collect.</p>
+            <div className="d-flex justify-content-center gap-3 flex-wrap">
+              <Link to="/requests/new" className="btn btn-emerald px-4 fw-semibold">
+                Request a Pickup
+              </Link>
+              <Link to="/features" className="btn btn-outline-light px-4 fw-semibold">
+                Explore Features
+              </Link>
             </div>
           </div>
         </div>
