@@ -301,7 +301,7 @@ WasteConnect/
 | :--- | :--- | :--- | :--- |
 | `GET` | `/api/admin/statistics` | Admin | Get aggregate counts (Total, Pending, Scheduled, Completed, High Priority) |
 | `GET` | `/api/admin/zones` | Admin | Get operational Collection Zone statistics breakdown |
-| `GET | `/api/admin/batches` | Admin | Get suggested collection batches grouped by zone and pickup date |
+| `GET` | `/api/admin/batches` | Admin | Get suggested collection batches grouped by zone and pickup date |
 | `GET` | `/api/admin/impact` | Admin | Get environmental impact metrics and category breakdown |
 | `GET` | `/api/admin/requests` | Admin | Get queue of all requests with search and multi-criteria filters |
 | `GET` | `/api/admin/requests/:id` | Admin | Get admin view of a specific request |
@@ -323,8 +323,9 @@ WasteConnect/
 PORT=5000
 NODE_ENV=development
 MONGODB_URI=mongodb://127.0.0.1:27017/wasteconnect
-JWT_SECRET=your_jwt_secret_key_here
+JWT_SECRET=your_secure_jwt_secret_here
 ```
+> **Security Note**: Use your own secure JWT secret. Never commit real secrets or production credentials to GitHub.
 
 ---
 
@@ -351,12 +352,12 @@ Copy `.env.example` to `server/.env`:
 cp .env.example server/.env
 ```
 
-### 4. Seed Seed Data (Optional)
+### 4. Database Setup & Seeding (Optional)
 To populate initial demo users, waste categories, and sample requests:
 ```bash
 npm run seed
 ```
-*(Note: If a local MongoDB server is not running, the seed script will automatically launch an in-memory MongoDB server for instant out-of-the-box demoing!)*
+*(Note: In local development (`NODE_ENV=development`), if local MongoDB is not running, the application will initialize an in-memory MongoDB fallback for instant testing. In production (`NODE_ENV=production`), `MONGODB_URI` is required and the server exits if connection fails.)*
 
 ### 5. Start Development Servers
 ```bash
