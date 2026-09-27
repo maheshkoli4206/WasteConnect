@@ -9,8 +9,11 @@ dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const app = express();
 
-// Connect to MongoDB Database
-connectDB();
+// Connect to MongoDB Database and auto-seed demo data if database is empty
+connectDB().then(async () => {
+  const { autoSeedIfEmpty } = require('./seed/seedData');
+  await autoSeedIfEmpty();
+});
 
 // Middleware
 app.use(cors());
