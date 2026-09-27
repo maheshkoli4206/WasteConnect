@@ -170,66 +170,87 @@ body {
   background-color: #06B6D4 !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-badge-reviewed {
   background-color: #2563EB !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-badge-scheduled {
   background-color: #F59E0B !important;
   color: #111827 !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-badge-assigned {
   background-color: #6366F1 !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-badge-collected {
   background-color: #10B981 !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-badge-completed {
   background-color: #059669 !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  padding: 5px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   letter-spacing: 0.02em !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lifecycle-arrow {
   color: #334155 !important;
   font-weight: 800 !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 1px;
 }
 
 .text-dark-primary {
@@ -297,12 +318,14 @@ body {
 
 /* Custom Buttons System */
 .btn-emerald {
-  background-color: var(--emerald-main);
-  color: #ffffff;
-  border: none;
+  background-color: #10B981;
+  color: #FFFFFF !important;
+  border: 1.5px solid #10B981;
   font-weight: 600;
+  font-size: 16px;
   border-radius: 10px;
-  padding: 0.65rem 1.35rem;
+  height: 48px;
+  padding: 0 1.5rem;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
   transition: all 0.2s ease;
   display: inline-flex;
@@ -311,18 +334,21 @@ body {
 }
 
 .btn-emerald:hover {
-  background-color: var(--emerald-hover);
-  color: #ffffff;
+  background-color: #059669;
+  border-color: #059669;
+  color: #FFFFFF !important;
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
 }
 
 .btn-secondary-hero {
   background-color: #FFFFFF;
-  color: var(--primary-forest);
-  border: 1.5px solid var(--primary-forest);
+  color: #0F392B !important;
+  border: 1.5px solid #0F392B;
   font-weight: 600;
+  font-size: 16px;
   border-radius: 10px;
-  padding: 0.65rem 1.35rem;
+  height: 48px;
+  padding: 0 1.5rem;
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -330,8 +356,8 @@ body {
 }
 
 .btn-secondary-hero:hover {
-  background-color: var(--primary-forest);
-  color: #FFFFFF;
+  background-color: #0F392B;
+  color: #FFFFFF !important;
 }
 
 .btn-outline-emerald {

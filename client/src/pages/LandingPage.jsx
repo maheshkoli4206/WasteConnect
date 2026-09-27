@@ -34,11 +34,11 @@ const LandingPage = () => {
               <span className="hero-badge mb-3">
                 SMART WASTE DISPOSAL & COLLECTION
               </span>
-              <h1 className="display-5 fw-bold mb-3 text-dark-forest" style={{ lineHeight: '1.14' }}>
+              <h1 className="display-5 fw-bold mb-3 text-dark-forest" style={{ lineHeight: '1.1' }}>
                 Waste collection made <br />
                 <span className="text-emerald">simple & smart.</span>
               </h1>
-              <p className="text-secondary-readable mb-4 me-lg-4" style={{ fontSize: '17px', lineHeight: '1.6' }}>
+              <p className="text-secondary-readable mb-4 me-lg-4" style={{ fontSize: '18px', lineHeight: '1.6' }}>
                 Track collection status and manage pickup requests through a centralized workflow.
               </p>
               <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
@@ -58,7 +58,7 @@ const LandingPage = () => {
                 <div className="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
                   <div className="d-flex align-items-center gap-2">
                     <span className="fs-5">♻️</span>
-                    <span className="fw-bold text-dark-primary fs-6">WasteConnect</span>
+                    <span className="fw-bold text-dark-primary fs-5">WasteConnect</span>
                   </div>
                   <span
                     className="badge"
@@ -66,9 +66,9 @@ const LandingPage = () => {
                       backgroundColor: '#D1FAE5',
                       color: '#047857',
                       border: '1px solid #10B981',
-                      fontWeight: 600,
+                      fontWeight: 700,
                       fontSize: '12px',
-                      padding: '5px 10px',
+                      padding: '5px 12px',
                       borderRadius: '20px',
                     }}
                   >
@@ -82,10 +82,10 @@ const LandingPage = () => {
                     <span className="badge-priority-high">HIGH PRIORITY</span>
                     <span className="zone-label">Zone A</span>
                   </div>
-                  <div className="fw-bold text-dark-primary mt-2" style={{ fontSize: '15px' }}>
+                  <div className="fw-bold text-dark-primary mt-2" style={{ fontSize: '16px' }}>
                     E-Waste Pickup
                   </div>
-                  <div className="text-secondary-readable mt-1" style={{ fontSize: '13px' }}>
+                  <div className="text-secondary-readable mt-1" style={{ fontSize: '14px' }}>
                     Lithium batteries, electronic monitors
                   </div>
                 </div>
@@ -94,9 +94,9 @@ const LandingPage = () => {
                 <div className="p-3 bg-light rounded-3 border text-start">
                   <span
                     className="d-block mb-2 fw-bold text-uppercase"
-                    style={{ fontSize: '12px', color: '#334155', letterSpacing: '0.04em' }}
+                    style={{ fontSize: '13px', color: '#0F172A', letterSpacing: '0.04em' }}
                   >
-                    Request Lifecycle
+                    REQUEST LIFECYCLE
                   </span>
                   <div className="d-flex justify-content-between align-items-center flex-wrap gap-1">
                     <span className="lifecycle-badge-submitted">SUBMITTED</span>
